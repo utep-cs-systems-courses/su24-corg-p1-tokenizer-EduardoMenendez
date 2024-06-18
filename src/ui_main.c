@@ -1,7 +1,6 @@
 #include <stdio.h>
+#include "tokenizer.h"
 
-#define MAX_LEN  500
-#define END_STR '\n'
 int get_string(char*);
 int main(){
 	char word[MAX_LEN];
@@ -18,7 +17,7 @@ int main(){
 		}else if(p[0]=='h' && length < 2){
 
 		      //Call History
-		      printf("Calling to history");
+		      printf("Calling to history list");
 
 		}else if(p[0] == '!'){
 		
@@ -44,6 +43,7 @@ int get_string(char* p){
 	while(i<MAX_LEN){
 		curr = getchar();
 		if(curr==END_STR){
+	 		p[i] = '\0';
 			goto Terminate;
 		}
 		p[i++] = curr;

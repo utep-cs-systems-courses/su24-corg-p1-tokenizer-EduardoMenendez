@@ -1,7 +1,8 @@
 #ifndef _TOKENIZER_
 #define _TOKENIZER_
 
-
+#define MAX_LEN  500
+#define END_STR '\n'
 /* Return true (non-zero) if c is a whitespace characer
    ('\t' or ' ').  
    Zero terminators are not printable (therefore false) */
