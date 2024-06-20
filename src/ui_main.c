@@ -1,10 +1,10 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include "tokenizer.h"
 
 int get_string(char*);
 int main(){
-	char word[MAX_LEN];
-	char* p = word;
+	char* p = (char *) malloc(MAX_LEN*sizeof(char));
 	while(1){
 		int length;
 		printf("\n\nWelcome to the tokenizer app (If you like to exit enter \"q\", if you like to see the history enter \"h\", if you like to access an item of the history enter \"!\" followed by the history number, otherwhise just  enter a word\n\n");
@@ -20,14 +20,16 @@ int main(){
 		      printf("Calling to history list");
 
 		}else if(p[0] == '!'){
-		
+
 		      //Bring History
 		      printf("Bring history token");
-		
+
 		}else{
 			//Tokenize
-		       printf("%s", p);
-		
+		       char* str = copy_str(p, length+1);
+               char** tokens = tokenize(str);
+               print_tokens(tokens);
+               free_tokens(tokens);
 		}
 
 	}
@@ -37,17 +39,17 @@ int main(){
 
 
 int get_string(char* p){
-	
+
 	char curr;
 	int i = 0;
 	while(i<MAX_LEN){
 		curr = getchar();
 		if(curr==END_STR){
-	 		p[i] = '\0';
+	 		//p[i] = '\0';
 			goto Terminate;
 		}
 		p[i++] = curr;
-		
+
 	}
 	Terminate:
 	 return i;

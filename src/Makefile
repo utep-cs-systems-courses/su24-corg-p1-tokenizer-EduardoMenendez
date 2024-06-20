@@ -13,4 +13,4 @@ clean:
 	rm -f *.o tokenizer
 
 run:tokenizer
-	./tokenizer
+	clear && ./tokenizer
