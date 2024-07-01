@@ -33,7 +33,7 @@ void print_history(List* list){
 }
 char* get_history(List *list, int id){
   Item *curr = list->root;
-  while(curr->next != NULL){
+  while(curr != NULL){
     if(curr->id == id) return curr->str;
     curr = curr->next;
   }
